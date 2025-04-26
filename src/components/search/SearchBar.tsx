@@ -4,11 +4,15 @@ import styles from './SearchBar.module.css'
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 
-const SearchBar = ({ onSubmit }) => {
-    const [query, setQuery] = useState('');
+interface SearchBarProps{
+    onSubmit: (query: string) => void;
+}
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
+    const [query, setQuery] = useState<string>('');
+
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
         if (query.trim() === '') {
             toast.error("Please enter text to search images!");
             return;

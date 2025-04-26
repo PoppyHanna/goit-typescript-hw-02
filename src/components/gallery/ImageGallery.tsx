@@ -1,12 +1,24 @@
-
-// import styles from './ImageGallery.module.css'
 import ImageCard from '../card/ImageCard';
 import ErrorMessage from '../error/ErrorMessage';
 import LoadMoreBtn from '../load/LoadMoreBtn';
 import Loader from '../loader/Loader';
 
+interface ImageData {
+  id: string;
+  urls: {
+    small: string;
+  };
+  alt_description: string;
+}
 
-const ImageGallery = ({ images, loading, error, onLoadMore }) => {
+interface ImageGalleryProps {
+  images: ImageData[];
+  loading: boolean;
+  error: string | null;
+  onLoadMore: () => void;
+}
+
+const ImageGallery: React.FC<ImageGalleryProps> = ({ images, loading, error, onLoadMore }) => {
   if (loading) {
     return <Loader />;
   }
@@ -17,14 +29,14 @@ const ImageGallery = ({ images, loading, error, onLoadMore }) => {
 
   return (
     <>
-      <ul >
+      <ul>
         {images.map((image) => (
-          <li key={image.id} >
+          <li key={image.id}>
             <ImageCard imageUrl={image.urls.small} altText={image.alt_description} />
           </li>
         ))}
       </ul>
-      <LoadMoreBtn onClick={onLoadMore} />
+      <LoadMoreBtn onClick={onLoadMore as () => void} />
     </>
   );
 };
