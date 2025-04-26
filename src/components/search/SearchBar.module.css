@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+}
+
+.input {
+  margin-right: 25px;
+  padding: 12px 24px;
+  font-family: "Brush Script MT", cursive;
+  font-size: 20px;
+  background-color: rgb(234, 234, 234);
+  color: black;
+  border: 2px solid #000;
+  border-radius: 8px;
+}
+
+.input:hover {
+  border: 2px solid #306ad5;
+}
+.input:focus {
+  border: 2px solid #306ad5;
+}
+
+.button {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 24px;
+
+  background: linear-gradient(to bottom right, #6666ff 0%, #ff99cc 100%);
+  border: none;
+}
+.button:hover,
+.button:focus {
+  background: linear-gradient(to top left, #6666ff 0%, #ff00ff 100%);
+}

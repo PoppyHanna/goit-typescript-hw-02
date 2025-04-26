@@ -1,0 +1,16 @@
+.button {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 24px;
+
+  background: linear-gradient(to bottom right, #6666ff 0%, #ff99cc 100%);
+  border: none;
+}
+.button:hover,
+.button:focus {
+  background: linear-gradient(to top left, #6666ff 0%, #ff00ff 100%);
+}

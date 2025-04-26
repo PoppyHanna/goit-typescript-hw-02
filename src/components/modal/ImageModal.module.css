@@ -1,0 +1,54 @@
+.cont {
+  max-width: 90vw; /* Максимальна ширина - 90% ширини видимої області */
+  max-height: 90vh; /* Максимальна висота - 90% висоти видимої області */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Приховує смугу прокрутки */
+}
+.img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  margin: 6px 10px;
+  gap: 20px;
+}
+
+.clause {
+  padding: 10px;
+  border: 2px solid #003aa5;
+  border-radius: 8px;
+  background-color: aliceblue;
+  margin: 0;
+}
+
+.text {
+  font-size: 24px;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(223, 223, 223);
+  border-radius: 8px;
+  max-width: 100%;
+  max-height: 90%;
+  overflow: auto;
+  padding: 20px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
