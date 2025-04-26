@@ -15,19 +15,18 @@ Modal.setAppElement('#root');
 const API_KEY = 'DbWHxSigq1c_dvzotJhjcSYPRMx6hz8wPZYRoQgApMQ';
 
 
-// Типізація пропсів для компоненту SearchBar
 interface SearchBarProps {
   onSubmit: (query: string) => void;
 }
 
-// Типізація пропсів для компоненту ImageModal
+
 interface ImageModalProps {
   isOpen: boolean;
   image: ImageData | null;
   onClose: () => void;
 }
 
-// Типізація пропсів для компоненту LoadMoreBtn
+
 interface LoadMoreBtnProps {
   onClick: () => void;
 }
@@ -39,13 +38,13 @@ export default function App() {
   const [page, setPage] = useState<number>(1);
   const [query, setQuery] = useState<string>('');
   const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
-  const [showBtn, setShowBtn] = useState<boolean>(false); // Для кнопки "Load more"
+  const [showBtn, setShowBtn] = useState<boolean>(false); 
 
   useEffect(() => {
-    if (!query) return; // Перевірка, чи є значення в query
+    if (!query) return; 
 
     const fetchImages = async (query: string): Promise<void> => {
-      setLoading(true); // Показуємо loader під час завантаження зображень
+      setLoading(true);
       try {
         const response = await axios.get<{ results: ImageData[], total_pages: number }>(
           `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${query}&page=${page}`
@@ -53,12 +52,12 @@ export default function App() {
 
         const { results, total_pages } = response.data;
         setImages((prevImages) => [...prevImages, ...results]);
-        setShowBtn(!!(total_pages && total_pages !== page));  // перетворює результат в булеве значення
+        setShowBtn(!!(total_pages && total_pages !== page));  
 
-        setLoading(false); // Після завершення завантаження ховаємо loader
+        setLoading(false); 
       } catch (error) {
         setError('Error fetching images. Please try again later.');
-        setLoading(false); // При помилці також ховаємо loader
+        setLoading(false); 
       }
     };
 
@@ -71,9 +70,9 @@ export default function App() {
 
   const handleSubmit = (query: string): void => {
     setQuery(query);
-    setPage(1); // Скидаємо сторінку до першої при новому пошуковому запиті
-    setImages([]); // Очищаємо список зображень
-    setLoading(true); // Показуємо loader після натискання на кнопку пошуку
+    setPage(1); 
+    setImages([]); 
+    setLoading(true); 
   };
 
   const handleImageClick = (image: ImageData): void => {

@@ -1,5 +1,5 @@
 import { Hourglass } from "react-loader-spinner";
-import styles from './Loader.module.css'; // Імпортуємо модуль стилів
+import styles from './Loader.module.css'; 
 
 interface LoaderProps {
   size?: number;
